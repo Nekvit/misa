@@ -329,28 +329,30 @@ body {
   letter-spacing: 1px;
 }
 
-/* Planet orbits */
+/* Planet orbits — zero-size anchor at the universe centre, rotates around it */
 .planet-orbit {
   position: absolute;
   top: 50%; left: 50%;
-  border-radius: 50%;
+  width: 0; height: 0;
   animation: orbitSpin linear infinite;
-  transform-origin: 0 0;
+  /* transform-origin default (0 0) = the centre of the universe ✓ */
 }
 
-/* Each orbit uses a translate to place it on its ring radius, then spins */
 .planet-orbit--1  { animation-duration: 8s;  --r: min(84px,  14vw); }
 .planet-orbit--2  { animation-duration: 14s; --r: min(157px, 26vw); }
 .planet-orbit--3a { animation-duration: 22s; --r: min(235px, 39vw); }
 .planet-orbit--3b { animation-duration: 22s; --r: min(235px, 39vw); animation-delay: -11s; }
 
 @keyframes orbitSpin {
-  from { transform: translate(calc(var(--r) * -1), 0) rotate(0deg)   translate(var(--r), 0); }
-  to   { transform: translate(calc(var(--r) * -1), 0) rotate(360deg) translate(var(--r), 0); }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-/* Planets counter-rotate so label stays upright */
+/* Planet sits on the orbit ring, offset right by --r, centred on itself */
 .planet {
+  position: absolute;
+  left: var(--r);          /* radius away from centre */
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -358,13 +360,19 @@ body {
   border-radius: 50%;
   width: min(70px, 12vw);
   height: min(70px, 12vw);
-  transform: translate(-50%, -50%);
+  /* centre the circle on the orbit point */
+  margin-left: calc(min(70px, 12vw) / -2);
+  margin-top:  calc(min(70px, 12vw) / -2);
+  /* counter-rotate so label stays upright */
   animation: counterSpin linear infinite;
   gap: 2px;
   box-shadow: 0 0 20px var(--p-glow, rgba(255,255,255,.3));
-  transition: transform .2s;
 }
-.planet:hover { transform: translate(-50%, -50%) scale(1.2); }
+
+@keyframes counterSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
 
 .planet--daughter {
   background: radial-gradient(135deg, #ff6b9d, #c0392b);
