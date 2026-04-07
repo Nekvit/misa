@@ -17,6 +17,23 @@ function createBolt() {
 for (let i = 0; i < 20; i++) createBolt();
 setInterval(createBolt, 700);
 
+// ── Star field ──
+const starsContainer = document.getElementById('stars');
+if (starsContainer) {
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.classList.add('star-dot');
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%; top:${Math.random()*100}%;
+      animation-duration:${Math.random()*3+1.5}s;
+      animation-delay:${Math.random()*4}s;
+    `;
+    starsContainer.appendChild(s);
+  }
+}
+
 // ── Scroll fade-in ──
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -27,10 +44,10 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.power-card, .certificate, .fig-son1, .fig-son2, .fig-dad, .fig-daughter').forEach((el, i) => {
+document.querySelectorAll('.power-card, .certificate, .universe').forEach((el, i) => {
   el.style.opacity    = '0';
   el.style.transform  = 'translateY(50px) scale(0.95)';
-  el.style.transition = `opacity .55s ease ${i * 0.09}s, transform .55s ease ${i * 0.09}s`;
+  el.style.transition = `opacity .6s ease ${i * 0.1}s, transform .6s ease ${i * 0.1}s`;
   observer.observe(el);
 });
 

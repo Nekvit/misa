@@ -235,57 +235,185 @@ body {
 .section-sub { color: #a29bfe; font-size: 1rem; font-weight: 700; margin-bottom: 3rem; letter-spacing: 1px; text-transform: uppercase; }
 .section-sub--dark { color: #7d3c98; }
 
-/* ══ FAMILY ══ */
+/* ══ FAMILY UNIVERSE ══ */
 .family-section {
-  background: var(--dark2);
+  background: radial-gradient(ellipse at 50% 50%, #1a0035 0%, #0a0015 70%);
   border-top: 3px solid #2a1a5e;
   border-bottom: 3px solid #2a1a5e;
+  padding-bottom: 6rem;
 }
 
-.family-wrap {
-  max-width: 760px;
+/* Star field */
+.universe {
+  position: relative;
+  width: min(560px, 92vw);
+  height: min(560px, 92vw);
   margin: 0 auto;
-  padding: 1rem;
 }
 
-.family-svg {
-  width: 100%;
-  height: auto;
-  overflow: visible;
+.stars {
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+}
+.star-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  animation: starTwinkle ease-in-out infinite;
+}
+@keyframes starTwinkle {
+  0%,100% { opacity: .2; transform: scale(1); }
+  50%      { opacity: 1;  transform: scale(1.5); }
 }
 
-/* SVG figure animations */
-.fig-mom {
-  animation: momFloat 3s ease-in-out infinite;
-  transform-origin: 350px 300px;
+/* Orbit rings */
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.1);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
 }
-@keyframes momFloat {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
+.orbit--1 { width: 30%;  height: 30%; border-color: rgba(255,107,157,.25); }
+.orbit--2 { width: 56%;  height: 56%; border-color: rgba(0,212,255,.2); }
+.orbit--3 { width: 84%;  height: 84%; border-color: rgba(255,215,0,.15); }
+
+/* Sun = Míša */
+.sun {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
-.fig-son1 { animation: son1Bounce 2.2s ease-in-out infinite; transform-origin: 120px 330px; }
-@keyframes son1Bounce {
-  0%,100% { transform: translateY(0) rotate(0deg); }
-  40%      { transform: translateY(-7px) rotate(-3deg); }
-  60%      { transform: translateY(-7px) rotate(3deg); }
+.sun-glow {
+  position: absolute;
+  inset: -40%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255,215,0,.35) 0%, rgba(155,89,182,.15) 50%, transparent 75%);
+  animation: sunPulse 3s ease-in-out infinite;
+  pointer-events: none;
 }
-.fig-son2 { animation: son2Bounce 2.5s ease-in-out infinite 0.3s; transform-origin: 230px 330px; }
-@keyframes son2Bounce {
-  0%,100% { transform: translateY(0) rotate(0deg); }
-  40%      { transform: translateY(-9px) rotate(3deg); }
-  60%      { transform: translateY(-9px) rotate(-3deg); }
+@keyframes sunPulse {
+  0%,100% { transform: scale(1);   opacity: 1; }
+  50%      { transform: scale(1.2); opacity: .7; }
 }
-.fig-dad { animation: dadSway 4s ease-in-out infinite 0.5s; transform-origin: 471px 330px; }
-@keyframes dadSway {
-  0%,100% { transform: rotate(0deg); }
-  50%      { transform: rotate(-2deg) translateY(-3px); }
+.sun-core {
+  width: min(130px, 22vw);
+  height: min(130px, 22vw);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700, #e6ac00);
+  border: 3px solid #fff8;
+  box-shadow: 0 0 40px rgba(255,215,0,.8), 0 0 80px rgba(255,215,0,.3), inset 0 0 20px rgba(255,255,255,.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  animation: sunSpin 0s; /* no spin, just float */
+  position: relative;
 }
-.fig-daughter { animation: daughterPulse 2s ease-in-out infinite; transform-origin: 580px 300px; }
-@keyframes daughterPulse {
-  0%,100% { transform: scale(1); opacity: 1; }
-  50%      { transform: scale(1.06); opacity: .9; }
+.sun-emoji { font-size: min(2.8rem, 8vw); line-height: 1; }
+.sun-name  {
+  font-family: 'Bangers', cursive;
+  font-size: min(1.3rem, 4vw);
+  letter-spacing: 2px;
+  color: #2d0a5e;
+  line-height: 1;
 }
-.sparkle-svg { animation: sparkleSpin 3s linear infinite; transform-origin: center; }
+.sun-title {
+  font-size: min(.65rem, 2vw);
+  font-weight: 800;
+  color: #5d2a80;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Planet orbits */
+.planet-orbit {
+  position: absolute;
+  top: 50%; left: 50%;
+  border-radius: 50%;
+  animation: orbitSpin linear infinite;
+  transform-origin: 0 0;
+}
+
+/* Each orbit uses a translate to place it on its ring radius, then spins */
+.planet-orbit--1  { animation-duration: 8s;  --r: min(84px,  14vw); }
+.planet-orbit--2  { animation-duration: 14s; --r: min(157px, 26vw); }
+.planet-orbit--3a { animation-duration: 22s; --r: min(235px, 39vw); }
+.planet-orbit--3b { animation-duration: 22s; --r: min(235px, 39vw); animation-delay: -11s; }
+
+@keyframes orbitSpin {
+  from { transform: translate(calc(var(--r) * -1), 0) rotate(0deg)   translate(var(--r), 0); }
+  to   { transform: translate(calc(var(--r) * -1), 0) rotate(360deg) translate(var(--r), 0); }
+}
+
+/* Planets counter-rotate so label stays upright */
+.planet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: min(70px, 12vw);
+  height: min(70px, 12vw);
+  transform: translate(-50%, -50%);
+  animation: counterSpin linear infinite;
+  gap: 2px;
+  box-shadow: 0 0 20px var(--p-glow, rgba(255,255,255,.3));
+  transition: transform .2s;
+}
+.planet:hover { transform: translate(-50%, -50%) scale(1.2); }
+
+.planet--daughter {
+  background: radial-gradient(135deg, #ff6b9d, #c0392b);
+  border: 2px solid #ff9db8;
+  --p-glow: rgba(255,107,157,.6);
+  animation-duration: 8s;
+}
+.planet--son1 {
+  background: radial-gradient(135deg, #00d4ff, #0090b0);
+  border: 2px solid #7ae8ff;
+  --p-glow: rgba(0,212,255,.6);
+  animation-duration: 14s;
+}
+.planet--son2 {
+  background: radial-gradient(135deg, #55efc4, #00917a);
+  border: 2px solid #9dfde1;
+  --p-glow: rgba(85,239,196,.6);
+  animation-duration: 22s;
+}
+.planet--dad {
+  background: radial-gradient(135deg, #a29bfe, #5d4ec8);
+  border: 2px solid #c8c2ff;
+  --p-glow: rgba(162,155,254,.6);
+  animation-duration: 22s;
+}
+
+@keyframes counterSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg);    }
+  to   { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+.planet-emoji { font-size: min(1.6rem, 5vw); line-height: 1; }
+.planet-label {
+  font-size: min(.58rem, 1.8vw);
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.planet-label small {
+  display: block;
+  font-size: .85em;
+  opacity: .8;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
 
 /* ══ POWERS ══ */
 .powers-section {
