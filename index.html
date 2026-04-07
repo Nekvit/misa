@@ -3,119 +3,332 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pro Míšu ❤️</title>
+  <title>Supermáma Míša ⚡</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Floating particles -->
-  <div class="particles" id="particles"></div>
+  <div class="lightning-bg" id="lightningBg"></div>
 
-  <!-- Hero -->
+  <!-- ══ HERO ══ -->
   <section class="hero">
+    <div class="hero-burst"></div>
+    <div class="pow pow1">POW!</div>
+    <div class="pow pow2">ZAP!</div>
+    <div class="pow pow3">WOW!</div>
+
     <div class="hero-content">
-      <div class="crown">👑</div>
-      <h1 class="hero-title">Míšo,<br/>jsi naše superhrdinka!</h1>
-      <p class="hero-subtitle">Nejlepší maminka & manželka na světě</p>
-      <div class="hearts-row">
-        <span class="bounce" style="animation-delay:0s">💛</span>
-        <span class="bounce" style="animation-delay:.15s">💙</span>
-        <span class="bounce" style="animation-delay:.3s">💗</span>
-        <span class="bounce" style="animation-delay:.45s">💛</span>
-        <span class="bounce" style="animation-delay:.6s">💙</span>
+      <div class="badge">
+        <span class="badge-star">⭐</span>
+        <span class="badge-text">SUPERHRDINKA #1</span>
+        <span class="badge-star">⭐</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-super">SUPER</span><br/>
+        <span class="title-name">MÍŠA</span>
+      </h1>
+
+      <p class="hero-tagline">Zachraňuje ráno, noc i celý vesmír —<br/>každý den s úsměvem a bez pláště.</p>
+
+      <div class="shield">
+        <div class="shield-inner">
+          <span class="shield-emoji">🦸‍♀️</span>
+          <span class="shield-label">Nejlepší<br/>máma&nbsp;&amp;&nbsp;manželka</span>
+        </div>
       </div>
     </div>
-    <div class="scroll-hint">↓</div>
+
+    <div class="scroll-cta">↓ ZOBRAZIT TÝM ↓</div>
   </section>
 
-  <!-- Family -->
+  <!-- ══ FAMILY SVG ══ -->
   <section class="section family-section">
-    <h2 class="section-title">Naše rodina</h2>
-    <div class="cards">
-      <div class="card card-blue">
-        <div class="card-emoji">👦</div>
-        <div class="card-label">Syn č. 1</div>
-        <p>Malý ďábel<br/>s andělskou tváří</p>
+    <h2 class="section-title">Náš superhrdinský tým</h2>
+    <p class="section-sub">Pět srdcí. Jedna velitelka.</p>
+
+    <div class="family-wrap">
+      <svg class="family-svg" viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rodinná ilustrace">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="glowFilter" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- Ground line -->
+        <line x1="60" y1="370" x2="640" y2="370" stroke="#2a1a5e" stroke-width="3" stroke-linecap="round"/>
+
+        <!-- ── Son 1 (far left) ── -->
+        <g class="fig-son1">
+          <!-- shadow -->
+          <ellipse cx="120" cy="372" rx="28" ry="7" fill="#1a0a3e" opacity="0.4"/>
+          <!-- body -->
+          <rect x="106" y="295" width="28" height="55" rx="10" fill="#74b9ff"/>
+          <!-- lightning bolt on shirt -->
+          <text x="120" y="326" font-size="13" text-anchor="middle" fill="#fff" font-weight="900">⚡</text>
+          <!-- legs -->
+          <rect x="108" y="348" width="10" height="28" rx="5" fill="#3a6fd8"/>
+          <rect x="122" y="348" width="10" height="28" rx="5" fill="#3a6fd8"/>
+          <!-- shoes -->
+          <ellipse cx="113" cy="376" rx="8" ry="5" fill="#1a3a8f"/>
+          <ellipse cx="127" cy="376" rx="8" ry="5" fill="#1a3a8f"/>
+          <!-- head -->
+          <circle cx="120" cy="278" r="24" fill="#f8d5a3"/>
+          <!-- hair -->
+          <path d="M97 268 Q120 248 143 268 Q140 255 120 250 Q100 255 97 268Z" fill="#3d2505"/>
+          <!-- eyes -->
+          <circle cx="112" cy="276" r="4" fill="#2d3436"/>
+          <circle cx="128" cy="276" r="4" fill="#2d3436"/>
+          <circle cx="113" cy="275" r="1.5" fill="#fff"/>
+          <circle cx="129" cy="275" r="1.5" fill="#fff"/>
+          <!-- smile -->
+          <path d="M112 287 Q120 295 128 287" stroke="#c0392b" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- arms up - excited -->
+          <line x1="106" y1="308" x2="86" y2="290" stroke="#f8d5a3" stroke-width="8" stroke-linecap="round"/>
+          <line x1="134" y1="308" x2="154" y2="290" stroke="#f8d5a3" stroke-width="8" stroke-linecap="round"/>
+          <!-- hands -->
+          <circle cx="86" cy="287" r="7" fill="#f8d5a3"/>
+          <circle cx="154" cy="287" r="7" fill="#f8d5a3"/>
+          <!-- label -->
+          <text x="120" y="400" font-size="12" text-anchor="middle" fill="#74b9ff" font-family="Nunito,sans-serif" font-weight="800">Syn č.1</text>
+          <text x="120" y="414" font-size="10" text-anchor="middle" fill="#a29bfe" font-family="Nunito,sans-serif">Ďábel s halo</text>
+        </g>
+
+        <!-- ── Son 2 (left-center) ── -->
+        <g class="fig-son2">
+          <ellipse cx="230" cy="372" rx="28" ry="7" fill="#1a0a3e" opacity="0.4"/>
+          <rect x="216" y="300" width="28" height="50" rx="10" fill="#55efc4"/>
+          <text x="230" y="329" font-size="13" text-anchor="middle" fill="#fff" font-weight="900">⭐</text>
+          <rect x="218" y="348" width="10" height="28" rx="5" fill="#00b894"/>
+          <rect x="232" y="348" width="10" height="28" rx="5" fill="#00b894"/>
+          <ellipse cx="223" cy="376" rx="8" ry="5" fill="#006650"/>
+          <ellipse cx="237" cy="376" rx="8" ry="5" fill="#006650"/>
+          <circle cx="230" cy="283" r="24" fill="#f8d5a3"/>
+          <path d="M207 273 Q230 253 253 273 Q250 260 230 255 Q210 260 207 273Z" fill="#5d3a0a"/>
+          <circle cx="222" cy="281" r="4" fill="#2d3436"/>
+          <circle cx="238" cy="281" r="4" fill="#2d3436"/>
+          <circle cx="223" cy="280" r="1.5" fill="#fff"/>
+          <circle cx="239" cy="280" r="1.5" fill="#fff"/>
+          <path d="M222 292 Q230 300 238 292" stroke="#c0392b" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <line x1="216" y1="313" x2="196" y2="298" stroke="#f8d5a3" stroke-width="8" stroke-linecap="round"/>
+          <line x1="244" y1="313" x2="264" y2="298" stroke="#f8d5a3" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="196" cy="295" r="7" fill="#f8d5a3"/>
+          <circle cx="264" cy="295" r="7" fill="#f8d5a3"/>
+          <text x="230" y="400" font-size="12" text-anchor="middle" fill="#55efc4" font-family="Nunito,sans-serif" font-weight="800">Syn č.2</text>
+          <text x="230" y="414" font-size="10" text-anchor="middle" fill="#a29bfe" font-family="Nunito,sans-serif">Větší ďábel</text>
+        </g>
+
+        <!-- ── MOM (center, BIGGEST, with cape) ── -->
+        <g class="fig-mom" filter="url(#glowFilter)">
+          <!-- glow halo -->
+          <ellipse cx="350" cy="200" rx="90" ry="90" fill="url(#glow)"/>
+          <ellipse cx="350" cy="375" rx="45" ry="10" fill="#ffd700" opacity="0.3"/>
+
+          <!-- cape back -->
+          <path d="M308 235 Q270 310 290 375 Q320 350 350 365 Q380 350 410 375 Q430 310 392 235Z"
+                fill="#c0392b" opacity="0.9"/>
+          <!-- cape inner -->
+          <path d="M315 240 Q285 305 300 365 Q325 345 350 358 Q375 345 400 365 Q415 305 385 240Z"
+                fill="#ffd700" opacity="0.4"/>
+
+          <!-- body -->
+          <rect x="322" y="255" width="56" height="85" rx="16" fill="#9b59b6"/>
+          <!-- M on chest -->
+          <text x="350" y="302" font-size="22" text-anchor="middle" fill="#ffd700" font-weight="900" font-family="Bangers,cursive">M</text>
+
+          <!-- legs -->
+          <rect x="325" y="337" width="18" height="38" rx="8" fill="#7d3c98"/>
+          <rect x="357" y="337" width="18" height="38" rx="8" fill="#7d3c98"/>
+          <!-- boots -->
+          <ellipse cx="334" cy="376" rx="14" ry="7" fill="#c0392b"/>
+          <ellipse cx="366" cy="376" rx="14" ry="7" fill="#c0392b"/>
+
+          <!-- head -->
+          <circle cx="350" cy="215" r="38" fill="#f8d5a3"/>
+          <!-- hair -->
+          <path d="M313 205 Q350 168 387 205 Q383 180 350 172 Q317 180 313 205Z" fill="#5d3a0a"/>
+          <!-- hair sides -->
+          <path d="M313 205 Q305 215 310 235 Q317 225 320 215Z" fill="#5d3a0a"/>
+          <path d="M387 205 Q395 215 390 235 Q383 225 380 215Z" fill="#5d3a0a"/>
+
+          <!-- eyes - with lashes -->
+          <ellipse cx="339" cy="213" rx="6" ry="6" fill="#2d3436"/>
+          <ellipse cx="361" cy="213" rx="6" ry="6" fill="#2d3436"/>
+          <circle cx="340" cy="211" r="2" fill="#fff"/>
+          <circle cx="362" cy="211" r="2" fill="#fff"/>
+          <!-- lashes -->
+          <line x1="334" y1="207" x2="330" y2="203" stroke="#2d3436" stroke-width="1.5"/>
+          <line x1="339" y1="205" x2="337" y2="201" stroke="#2d3436" stroke-width="1.5"/>
+          <line x1="344" y1="206" x2="343" y2="202" stroke="#2d3436" stroke-width="1.5"/>
+          <line x1="356" y1="206" x2="355" y2="202" stroke="#2d3436" stroke-width="1.5"/>
+          <line x1="361" y1="205" x2="361" y2="201" stroke="#2d3436" stroke-width="1.5"/>
+          <line x1="366" y1="207" x2="368" y2="203" stroke="#2d3436" stroke-width="1.5"/>
+          <!-- smile -->
+          <path d="M338 227 Q350 240 362 227" stroke="#c0392b" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- cheeks -->
+          <circle cx="330" cy="224" r="7" fill="#ff9999" opacity="0.5"/>
+          <circle cx="370" cy="224" r="7" fill="#ff9999" opacity="0.5"/>
+
+          <!-- crown -->
+          <path d="M320 182 L328 162 L338 178 L350 158 L362 178 L372 162 L380 182Z"
+                fill="#ffd700" stroke="#e6ac00" stroke-width="1.5"/>
+          <circle cx="350" cy="160" r="5" fill="#ff6b9d"/>
+          <circle cx="328" cy="164" r="4" fill="#74b9ff"/>
+          <circle cx="372" cy="164" r="4" fill="#74b9ff"/>
+
+          <!-- arms - power pose -->
+          <line x1="322" y1="268" x2="288" y2="240" stroke="#f8d5a3" stroke-width="12" stroke-linecap="round"/>
+          <line x1="378" y1="268" x2="412" y2="240" stroke="#f8d5a3" stroke-width="12" stroke-linecap="round"/>
+          <!-- fists -->
+          <circle cx="285" cy="237" r="12" fill="#f8d5a3"/>
+          <circle cx="415" cy="237" r="12" fill="#f8d5a3"/>
+          <!-- stars on fists -->
+          <text x="285" y="242" font-size="12" text-anchor="middle">⭐</text>
+          <text x="415" y="242" font-size="12" text-anchor="middle">⭐</text>
+
+          <!-- label -->
+          <text x="350" y="400" font-size="15" text-anchor="middle" fill="#ffd700" font-family="Bangers,cursive" letter-spacing="1">SUPERMÁMA MÍŠA</text>
+          <text x="350" y="416" font-size="11" text-anchor="middle" fill="#ff6b9d" font-family="Nunito,sans-serif">Velitelka týmu</text>
+        </g>
+
+        <!-- ── Dad (right-center) ── -->
+        <g class="fig-dad">
+          <ellipse cx="470" cy="372" rx="30" ry="8" fill="#1a0a3e" opacity="0.4"/>
+          <rect x="456" y="280" width="30" height="65" rx="12" fill="#636e72"/>
+          <!-- tie -->
+          <path d="M471 280 L467 295 L471 310 L475 295Z" fill="#e17055"/>
+          <rect x="458" y="343" width="11" height="32" rx="5" fill="#2d3436"/>
+          <rect x="473" y="343" width="11" height="32" rx="5" fill="#2d3436"/>
+          <ellipse cx="463" cy="376" rx="9" ry="5" fill="#1a1a2e"/>
+          <ellipse cx="479" cy="376" rx="9" ry="5" fill="#1a1a2e"/>
+          <circle cx="471" cy="262" r="26" fill="#f8d5a3"/>
+          <!-- hair -->
+          <path d="M446 254 Q471 235 496 254 Q492 240 471 236 Q450 240 446 254Z" fill="#2d3436"/>
+          <!-- stubble -->
+          <path d="M460 275 Q471 282 482 275" stroke="#bbb" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+          <circle cx="463" cy="261" r="4" fill="#2d3436"/>
+          <circle cx="479" cy="261" r="4" fill="#2d3436"/>
+          <circle cx="464" cy="260" r="1.5" fill="#fff"/>
+          <circle cx="480" cy="260" r="1.5" fill="#fff"/>
+          <path d="M463 272 Q471 279 479 272" stroke="#c0392b" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <line x1="456" y1="293" x2="436" y2="276" stroke="#f8d5a3" stroke-width="9" stroke-linecap="round"/>
+          <line x1="486" y1="293" x2="506" y2="276" stroke="#f8d5a3" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="436" cy="273" r="8" fill="#f8d5a3"/>
+          <circle cx="506" cy="273" r="8" fill="#f8d5a3"/>
+          <text x="471" y="400" font-size="12" text-anchor="middle" fill="#b2bec3" font-family="Nunito,sans-serif" font-weight="800">Táta</text>
+          <text x="471" y="414" font-size="10" text-anchor="middle" fill="#a29bfe" font-family="Nunito,sans-serif">Sidekick :-)</text>
+        </g>
+
+        <!-- ── Daughter (coming soon — star/baby) ── -->
+        <g class="fig-daughter">
+          <circle cx="580" cy="300" r="38" fill="#2d0a4e" opacity="0.6"/>
+          <circle cx="580" cy="300" r="34" fill="#1a0035" stroke="#ff6b9d" stroke-width="2" stroke-dasharray="6,4"/>
+          <text x="580" y="290" font-size="26" text-anchor="middle">👶</text>
+          <text x="580" y="316" font-size="11" text-anchor="middle" fill="#ff6b9d" font-family="Nunito,sans-serif" font-weight="800">Dcerka</text>
+          <text x="580" y="330" font-size="10" text-anchor="middle" fill="#ffd700" font-family="Nunito,sans-serif">na cestě…</text>
+          <!-- sparkles around -->
+          <text x="548" y="272" font-size="13" class="sparkle-svg">✨</text>
+          <text x="608" y="272" font-size="13" class="sparkle-svg">✨</text>
+          <text x="534" y="305" font-size="11" class="sparkle-svg">⭐</text>
+          <text x="622" y="305" font-size="11" class="sparkle-svg">⭐</text>
+          <text x="548" y="338" font-size="13" class="sparkle-svg">✨</text>
+          <text x="608" y="338" font-size="13" class="sparkle-svg">✨</text>
+
+          <text x="580" y="400" font-size="12" text-anchor="middle" fill="#ff6b9d" font-family="Nunito,sans-serif" font-weight="800">Princezna</text>
+          <text x="580" y="414" font-size="10" text-anchor="middle" fill="#a29bfe" font-family="Nunito,sans-serif">Přichází!</text>
+        </g>
+
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══ SUPERPOWERS ══ -->
+  <section class="section powers-section">
+    <div class="comic-panel-bg"></div>
+    <h2 class="section-title section-title--dark">Superschopnosti Míši</h2>
+    <p class="section-sub section-sub--dark">Ověřeno rodinou. Neporazitelné.</p>
+    <div class="powers">
+      <div class="power-card">
+        <div class="power-icon">🌙</div>
+        <div class="power-name">NOČNÍ HLÍDKA</div>
+        <p>Funguje bez spánku.<br/>Baterie: nekonečná.</p>
       </div>
-      <div class="card card-yellow">
-        <div class="card-emoji">👦</div>
-        <div class="card-label">Syn č. 2</div>
-        <p>Ještě větší<br/>ďábel 😄</p>
+      <div class="power-card">
+        <div class="power-icon">🍝</div>
+        <div class="power-name">KOUZELNICKÁ KUCHYNĚ</div>
+        <p>Promění cokoliv<br/>v nejlepší jídlo světa.</p>
       </div>
-      <div class="card card-pink">
-        <div class="card-emoji">🍼✨</div>
-        <div class="card-label">Dcerka na cestě</div>
-        <p>Naše princezna<br/>přichází!</p>
+      <div class="power-card">
+        <div class="power-icon">🤗</div>
+        <div class="power-name">LÉČIVÉ OBJETÍ</div>
+        <p>Jedno objetí vyřeší<br/>každou katastrofu.</p>
       </div>
-      <div class="card card-purple">
-        <div class="card-emoji">🤰💖</div>
-        <div class="card-label">Míša</div>
-        <p>Středobod<br/>celého vesmíru</p>
+      <div class="power-card">
+        <div class="power-icon">📚</div>
+        <div class="power-name">POHÁDKOVÁ MAGIE</div>
+        <p>Čte pohádky tak,<br/>že i táta usne.</p>
+      </div>
+      <div class="power-card">
+        <div class="power-icon">💪</div>
+        <div class="power-name">NEOMEZENÁ SÍLA</div>
+        <p>Zvládne vše najednou —<br/>s úsměvem a bez pláne.</p>
+      </div>
+      <div class="power-card">
+        <div class="power-icon">✨</div>
+        <div class="power-name">ZLATÉ SRDCE</div>
+        <p>Září i v nejčernější<br/>tmě. Doslova.</p>
       </div>
     </div>
   </section>
 
-  <!-- Why we love her -->
-  <section class="section reasons-section">
-    <h2 class="section-title">Proč tě milujeme</h2>
-    <div class="reasons">
-      <div class="reason">
-        <span class="reason-icon">🌙</span>
-        <p>Vstáváš v noci<br/>bez mrknutí oka</p>
+  <!-- ══ HALL OF FAME / LETTER ══ -->
+  <section class="section hof-section">
+    <div class="hof-header">
+      <span class="hof-badge">🏆 SÍŇ SLÁVY 🏆</span>
+    </div>
+    <div class="certificate">
+      <div class="cert-stars">⭐⭐⭐⭐⭐</div>
+      <h2 class="cert-title">Supermámo Míšo,</h2>
+      <p>
+        Tento certifikát potvrzuje, že jsi <strong>nejlepší superhrdinka vesmíru</strong>.
+        Zachránila jsi nás stokrát před katastrofou (z toho osmkrát dnes ráno).
+        Přestože nemáš plášť, stihuješ to, co by normálnímu hrdinovi trvalo celý den —
+        ještě před snídaní.
+      </p>
+      <p>
+        Vychováváš dva divochy, nosíš pod srdcem princeznu a přesto jsi vždy tam,
+        kde tě potřebujeme. Tvoje síla není nadpřirozená — je ještě větší.
+        Je to čistá, nefalšovaná láska.
+      </p>
+      <p>
+        Jsi naší kotvou, naším domovem, naší superhrdinkou.<br/>
+        <strong>Každý den. Bez výjimky.</strong>
+      </p>
+      <div class="cert-sign">
+        <span>S láskou navždy,</span>
+        <strong>Tvůj tým ❤️</strong>
       </div>
-      <div class="reason">
-        <span class="reason-icon">🍝</span>
-        <p>Vaříš nejlepší<br/>jídlo na světě</p>
-      </div>
-      <div class="reason">
-        <span class="reason-icon">🤗</span>
-        <p>Tvoje objetí<br/>léčí všechno</p>
-      </div>
-      <div class="reason">
-        <span class="reason-icon">📚</span>
-        <p>Čteš pohádky<br/>s plným nasazením</p>
-      </div>
-      <div class="reason">
-        <span class="reason-icon">💪</span>
-        <p>Zvládáš všechno<br/>s úsměvem</p>
-      </div>
-      <div class="reason">
-        <span class="reason-icon">✨</span>
-        <p>Záříš i v těch<br/>nejtěžších dnech</p>
-      </div>
+      <div class="cert-seal">🦸‍♀️<br/><span>OVĚŘENO</span></div>
     </div>
   </section>
 
-  <!-- Love letter -->
-  <section class="section letter-section">
-    <div class="letter">
-      <div class="letter-deco">💌</div>
-      <h2>Milá Míšo,</h2>
-      <p>
-        Víš, co je na tobě nejúžasnější? Jsi maminka dvou divoších, brzy i malé princezny —
-        a přesto zvládáš každý den s laskavostí a láskou, která nás doslova zahřívá u srdce.
-      </p>
-      <p>
-        Naši kluci mají to nejlepší, co mohli dostat: <strong>tebe</strong>.
-        Vidíme, jak moc pro nás děláš. Každý objem, každá ukolébavka, každý
-        „pojď, přečteme si pohádku" — nic z toho nepřehlédneme.
-      </p>
-      <p>
-        Jsi naše kotva, naše teplo, náš domov.
-      </p>
-      <p class="letter-sign">S láskou navždy 💛</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- ══ FOOTER ══ -->
   <footer class="footer">
-    <div class="footer-content">
-      <span class="big-heart">❤️</span>
-      <p>Uděláno s láskou — jen pro tebe, Míšo</p>
-      <p class="small">Tvoje rodina</p>
-    </div>
+    <div class="footer-bolt">⚡</div>
+    <p class="footer-title">SUPERMÁMA MÍŠA</p>
+    <p class="footer-sub">Zachraňuje svět od roku prvního úsměvu.</p>
+    <div class="footer-hearts">❤️ &nbsp; 💙 &nbsp; 💛 &nbsp; 💗 &nbsp; ⭐</div>
   </footer>
 
   <script src="app.js"></script>

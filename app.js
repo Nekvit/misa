@@ -1,38 +1,41 @@
-// Floating particles
-const EMOJIS = ['❤️','💛','💙','⭐','✨','🌸','💖','🌟','💕','🎀','🍭','🦋'];
-const container = document.getElementById('particles');
+// ── Lightning bg particles ──
+const BOLTS = ['⚡','⭐','💫','✨','🌟','💥','⚡','💛','💜','💙'];
+const bg = document.getElementById('lightningBg');
 
-function createParticle() {
+function createBolt() {
   const el = document.createElement('span');
-  el.classList.add('particle');
-  el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+  el.classList.add('bolt');
+  el.textContent = BOLTS[Math.floor(Math.random() * BOLTS.length)];
   el.style.left     = Math.random() * 100 + 'vw';
-  el.style.fontSize = (Math.random() * 1.2 + 0.8) + 'rem';
-  const dur = Math.random() * 12 + 8;
+  el.style.fontSize = (Math.random() * 1.4 + 0.8) + 'rem';
+  const dur = Math.random() * 14 + 8;
   el.style.animationDuration = dur + 's';
-  el.style.animationDelay   = Math.random() * 6 + 's';
-  container.appendChild(el);
-  setTimeout(() => el.remove(), (dur + 6) * 1000);
+  el.style.animationDelay   = Math.random() * 4 + 's';
+  bg.appendChild(el);
+  setTimeout(() => el.remove(), (dur + 5) * 1000);
 }
+for (let i = 0; i < 20; i++) createBolt();
+setInterval(createBolt, 700);
 
-// Spawn particles periodically
-for (let i = 0; i < 18; i++) createParticle();
-setInterval(createParticle, 800);
-
-// Intersection observer — fade-in cards & reasons
+// ── Scroll fade-in ──
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = e.target.dataset.transform || 'translateY(0)';
+      e.target.style.opacity   = '1';
+      e.target.style.transform = 'translateY(0) scale(1)';
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.1 });
 
-document.querySelectorAll('.card, .reason, .letter').forEach((el, i) => {
+document.querySelectorAll('.power-card, .certificate, .fig-son1, .fig-son2, .fig-dad, .fig-daughter').forEach((el, i) => {
   el.style.opacity    = '0';
-  el.style.transform  = 'translateY(40px)';
-  el.style.transition = `opacity .6s ease ${i * 0.08}s, transform .6s ease ${i * 0.08}s`;
-  el.dataset.transform = 'translateY(0)';
+  el.style.transform  = 'translateY(50px) scale(0.95)';
+  el.style.transition = `opacity .55s ease ${i * 0.09}s, transform .55s ease ${i * 0.09}s`;
   observer.observe(el);
+});
+
+// ── POW rotation fix (CSS var workaround) ──
+document.querySelectorAll('.pow').forEach(p => {
+  const r = getComputedStyle(p).transform;
+  p.style.setProperty('--r', r === 'none' ? '0deg' : r);
 });
