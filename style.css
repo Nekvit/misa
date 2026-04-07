@@ -1,0 +1,267 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pink:   #ff6b9d;
+  --yellow: #ffd166;
+  --blue:   #74b9ff;
+  --purple: #a29bfe;
+  --green:  #55efc4;
+  --bg:     #fff9fb;
+  --text:   #2d3436;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── Particles ── */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.particle {
+  position: absolute;
+  font-size: 1.4rem;
+  animation: floatUp linear infinite;
+  opacity: 0;
+}
+@keyframes floatUp {
+  0%   { transform: translateY(100vh) rotate(0deg);   opacity: 0; }
+  10%  { opacity: .7; }
+  90%  { opacity: .5; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe0ec 0%, #ffecd2 40%, #e0f7fa 100%);
+  padding: 2rem;
+  z-index: 1;
+}
+
+.crown {
+  font-size: 4rem;
+  animation: wiggle 2s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes wiggle {
+  0%,100% { transform: rotate(-8deg) scale(1); }
+  50%      { transform: rotate(8deg)  scale(1.1); }
+}
+
+.hero-title {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--pink), #e17055, var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: .5rem 0 1rem;
+  text-shadow: none;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 700;
+  color: #636e72;
+  margin-bottom: 1.5rem;
+  letter-spacing: .5px;
+}
+
+.hearts-row { font-size: 2rem; display: flex; gap: .5rem; justify-content: center; }
+
+.bounce {
+  display: inline-block;
+  animation: bounce 1.4s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 1.8rem;
+  animation: scrollPulse 2s ease-in-out infinite;
+  color: var(--pink);
+  font-weight: 800;
+}
+@keyframes scrollPulse {
+  0%,100% { transform: translateY(0); opacity: 1; }
+  50%      { transform: translateY(8px); opacity: .4; }
+}
+
+/* ── Sections ── */
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Family cards ── */
+.family-section { background: #fff; }
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.card {
+  width: 190px;
+  border-radius: 24px;
+  padding: 2rem 1.2rem;
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: default;
+}
+.card:hover {
+  transform: translateY(-10px) rotate(2deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,.12);
+}
+.card-blue   { background: #e8f4ff; border: 3px solid var(--blue); }
+.card-yellow { background: #fffbe6; border: 3px solid var(--yellow); }
+.card-pink   { background: #fff0f5; border: 3px solid var(--pink); }
+.card-purple { background: #f3f0ff; border: 3px solid var(--purple); }
+
+.card-emoji { font-size: 3rem; margin-bottom: .6rem; }
+.card-label {
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: .4rem;
+  color: #2d3436;
+}
+.card p { font-size: .95rem; color: #636e72; line-height: 1.5; }
+
+/* ── Reasons ── */
+.reasons-section {
+  background: linear-gradient(160deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.reason {
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 1.8rem 1.4rem;
+  width: 200px;
+  transition: transform .3s;
+}
+.reason:hover { transform: scale(1.07) rotate(-2deg); }
+.reason-icon  { font-size: 2.8rem; display: block; margin-bottom: .7rem; }
+.reason p     { font-size: .95rem; font-weight: 700; color: #2d3436; line-height: 1.5; }
+
+/* ── Letter ── */
+.letter-section {
+  background: #fff;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.letter {
+  max-width: 660px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #fff9fb, #f3f0ff);
+  border: 3px dashed var(--pink);
+  border-radius: 28px;
+  padding: 3rem 2.5rem;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(255,107,157,.15);
+}
+
+.letter-deco {
+  font-size: 3rem;
+  text-align: center;
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.letter h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8rem;
+  color: var(--pink);
+  margin-bottom: 1.2rem;
+}
+
+.letter p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.letter-sign {
+  font-weight: 800;
+  font-size: 1.2rem !important;
+  color: var(--purple) !important;
+  margin-top: 1.5rem !important;
+}
+
+/* ── Footer ── */
+.footer {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.big-heart {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 1rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.2); }
+}
+
+.footer p        { font-size: 1.1rem; font-weight: 700; margin-bottom: .3rem; }
+.footer .small   { font-size: .9rem; opacity: .85; }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .card    { width: 155px; }
+  .reason  { width: 155px; }
+  .letter  { padding: 2rem 1.2rem; }
+}
